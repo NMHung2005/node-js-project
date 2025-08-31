@@ -1,8 +1,10 @@
 import express, { Express } from "express";
 import {
     getHomepage, getCreateUserPage, postCreateUser,
-    postDeleteUser, getViewUser, postUpdateUser,
-    getProductFilterPage
+    postDeleteUser, getViewUser, postUpdateUserAdmin,
+    getProductFilterPage,
+    getManageAccountPage,
+    postUpdateUser
 } from "controllers/user.controller";
 import {
     getDashboardPage, getAdminUserPage,
@@ -42,6 +44,9 @@ const webRoutes = (app: Express) => {
     router.get("/done", getDonePage);
     router.get("/order-history", getOrderHistoryPage);
     router.post("/add-to-cart-from-detail-page/:id", postAddToCartFromDetailPage);
+    router.get("/manage-account", getManageAccountPage);
+    router.post("/update-user", fileUploadMiddleware("avatar", "images/user"), postUpdateUser)
+
 
 
     //admin routes
@@ -53,7 +58,7 @@ const webRoutes = (app: Express) => {
     router.get("/admin/view-user/:id", getViewUser);
     router.get("/admin/order", getAdminOrderPage);
     router.get("/admin/view-order/:id", getAdminOrderDetailPage);
-    router.post("/admin/update-user", fileUploadMiddleware("avatar", "images/user"), postUpdateUser);
+    router.post("/admin/update-user", fileUploadMiddleware("avatar", "images/user"), postUpdateUserAdmin);
 
     router.get("/admin/product", getAdminProductPage);
     router.get("/admin/create-product", getAdminCreateProductPage);

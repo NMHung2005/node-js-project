@@ -48,10 +48,11 @@ const getAdminOrderPage = async (req: Request, res: Response) => {
     let currentPage = page ? +page : 1;
     if (currentPage <= 0) currentPage = 1;
 
-    const orders = await getAllOrders(currentPage);
+    const { orders, orderNumber } = await getAllOrders(currentPage);
     const totalPages = await countTotalOrderPage();
     return res.render('admin/order/show.ejs', {
         orders: orders,
+        orderNumber,
         totalPages,
         currentPage
     });

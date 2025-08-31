@@ -25,8 +25,7 @@
   },
   "keywords": [
     "nodejs",
-    "express",
-    "mongodb"
+    "express"
   ],
   "author": "Hung.NM",
   "license": "ISC",

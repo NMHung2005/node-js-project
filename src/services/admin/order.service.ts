@@ -4,13 +4,15 @@ import { TOTAL_ITEM_PER_PAGE } from "config/constant";
 const getAllOrders = async (currentPage: number) => {
     const pageSize = TOTAL_ITEM_PER_PAGE;
     const skip = (currentPage - 1) * pageSize;
-    return await prisma.order.findMany({
+    const orders = await prisma.order.findMany({
         skip: skip,
         take: pageSize,
         include: {
             user: true
         }
     });
+    const orderNumber = await prisma.order.count();
+    return { orders, orderNumber }
 }
 const countTotalOrderPage = async () => {
     const totalItem = await prisma.order.count();

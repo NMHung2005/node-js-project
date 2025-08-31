@@ -151,6 +151,16 @@ const initDatabase = async () => {
                 factory: "DELL",
                 target: "MONG-NHE",
                 image: "1711081278418-dell-02.png"
+            },
+            {
+                name: "Laptop Asus Zenbook S16",
+                price: 24599000,
+                detailDesc: "Laptop Asus Zenbook S16 là chiếc laptop lý tưởng cho công việc hàng ngày. Bộ vi xử lý Intel Core i5 thế hệ thứ 12 hiệu suất cao, màn hình lớn 15,6 inch Full HD 120Hz mượt mà, thiết kế bền bỉ sẽ giúp bạn giải quyết công việc nhanh chóng mọi lúc mọi nơi.",
+                shortDesc: "Intel Iris Xe Graphics",
+                quantity: 99,
+                factory: "ASUS",
+                target: "MONG-NHE",
+                image: "asus-zenbook-s16-um5606ka-r7-ai-350-rk113ws-1-638784540244946939-750x500.jpg"
             }
         ];
 

@@ -52,12 +52,12 @@ const getViewUser = async (req: Request, res: Response) => {
         roles: roles
     });
 }
-const postUpdateUser = async (req: Request, res: Response) => {
+const postUpdateUserAdmin = async (req: Request, res: Response) => {
     const { id, fullName, phone, role, address } = req.body;
     const file = req.file;
     const avatar = file?.filename ?? undefined;
     //update user by id
-    const a = await updateUserById(id, fullName, phone, role, address, avatar);
+    const a = await updateUserById(id, fullName, phone, address, avatar, role);
     return res.redirect('/admin/user');
 }
 const getProductFilterPage = async (req: Request, res: Response) => {
@@ -92,8 +92,20 @@ const getProductFilterPage = async (req: Request, res: Response) => {
     //     data: product
     // })
 }
+const getManageAccountPage = (req: Request, res: Response) => {
+    return res.render("client/home/manage");
+}
+const postUpdateUser = async (req: Request, res: Response) => {
+    const { id, fullName, phone, address } = req.body;
+    const file = req.file;
+    const avatar = file?.filename ?? undefined;
+    //update user by id
+    const a = await updateUserById(id, fullName, phone, address, avatar, "");
+    return res.redirect('/');
+}
 export {
     getHomepage, getCreateUserPage, postCreateUser,
-    postDeleteUser, getViewUser, postUpdateUser,
-    getProductFilterPage
+    postDeleteUser, getViewUser, postUpdateUserAdmin,
+    getProductFilterPage, getManageAccountPage,
+    postUpdateUser
 };

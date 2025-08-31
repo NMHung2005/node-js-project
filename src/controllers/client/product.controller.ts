@@ -1,4 +1,3 @@
-import { prisma } from "config/client";
 import { Request, Response } from "express"
 import { getUserCartDetails } from "services/client/auth.service";
 import { addProductToCart, deleteProductInCart, getOrderDetailById, getOrderHistoryById, getProductById, handlePlaceOrder, updateCartDetailBeforeCheckout } from "services/client/item.service";
