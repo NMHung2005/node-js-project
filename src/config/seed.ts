@@ -27,6 +27,9 @@ const initDatabase = async () => {
         const adminRole = await prisma.role.findFirst({
             where: { name: "ADMIN" }
         })
+        const userRole = await prisma.role.findFirst({
+            where: { name: "USER" }
+        })
         if (adminRole) {
             await prisma.user.createMany({
                 data: [
@@ -43,6 +46,13 @@ const initDatabase = async () => {
                         password: defaultPassword,
                         accountType: ACCOUNT_TYPE.SYSTEM,
                         roleId: adminRole.id
+                    },
+                    {
+                        fullName: "User",
+                        username: "user@gmail.com",
+                        password: defaultPassword,
+                        accountType: ACCOUNT_TYPE.SYSTEM,
+                        roleId: userRole.id
                     },
                 ]
             })

@@ -67,8 +67,6 @@ const webRoutes = (app: Express) => {
     router.get("/admin/view-product/:id", getViewProduct);
     router.post("/admin/update-product", fileUploadMiddleware("image", "images/product"), postUpdateProduct);
 
-
-
     app.use("/", isAdmin, router);
 }
 export default webRoutes;
