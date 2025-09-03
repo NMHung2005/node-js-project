@@ -3,7 +3,15 @@
 
 This is an open-source e-commerce platform for a Laptopshop, built with Nodejs.
 
+<p align="center">
+  <img src="public\images\Capture.png" width="400" alt="Laptopshop Homepage" />
+  <img src="public\images\Screenshot_1.png" width="400" alt="Laptopshop Product Details" />
+</p>
 
+<p align="center">
+  <img src="public\images\Screenshot_2.png" width="400" alt="Laptopshop Products" />
+  <img src="public\images\Screenshot_3.png" width="400" alt="Laptopshop Cart" />
+</p>
 
 
 ## Tech Stack
